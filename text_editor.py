@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog, PhotoImage
 import tkinter.messagebox as msgbox
+from tkinter.messagebox import askquestion
 import ctypes
 from google import genai
 import dotenv
@@ -46,7 +47,7 @@ def open_file():
     global file_name
     text = text_widget.get('1.0', 'end')
     if text.strip() != '':
-        save_file()
+        if save_file_qstn(): save_file()
     file_path = filedialog.askopenfilename()
     if file_path:
         text_widget.delete('1.0', 'end')
@@ -85,6 +86,10 @@ def save_file():
         file.write(text)
     root.title(file_name)
 
+def save_file_qstn():
+    qstn = msgbox.askquestion("Save", "Save changes?", icon='question')
+    return qstn == 'yes'
+
 def save_file_event(event=None):
     save_file()
     return 'break'
@@ -95,8 +100,8 @@ root.bind('<Control-s>', save_file_event)
 def new_file():
     global file_name
     text = text_widget.get('1.0', 'end-1c').strip()
-    if text != '':
-        save_file()
+    if text != '' or file_name != '':
+        if save_file_qstn(): save_file()
     file_name = ''
     text_widget.delete('1.0', 'end')
     root.title('*')
@@ -133,7 +138,7 @@ def googleAIgenerate():
 def quit_app():
     text = text_widget.get('1.0', 'end').strip()
     if file_save_on_exit and text != '':
-        save_file()
+        if save_file_qstn(): save_file()
     root.quit()
     root.destroy()
 
@@ -167,3 +172,4 @@ if ai_tools:
 root.config(menu=menu_bar)
 
 root.mainloop()
+
