@@ -4,7 +4,9 @@
         "text_size" : "14"
     },
     "file_settings" : {
-    "file_save_on_exit" : true
+    "file_save_on_exit" : true,
+    "file_auto_save" : true,
+    "file_auto_save_interval" : 60 // in seconds
     },
     "ai_settings" : {
         "spellcheck_model" : "gemma3:1b",
