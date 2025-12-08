@@ -5,7 +5,7 @@ from tkinter.messagebox import askquestion
 import ctypes
 import ollama
 import json
-import sys, threading, time
+import sys
 
 # Get settings.json, defaults last
 try:

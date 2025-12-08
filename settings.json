@@ -10,7 +10,7 @@
     },
     "ai_settings" : {
         "spellcheck_model" : "gemma3:1b",
-        "spellcheck_prompt" : "Spellcheck this without adding anything else but the text:",
+        "spellcheck_prompt" : "Spellcheck this, reply only the original text",
         "gen_model" : "gemma3:1b",
         "gen_prompt" : "Generate a response without additional text:",
         "ai_tools" : true
