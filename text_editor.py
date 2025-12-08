@@ -193,7 +193,7 @@ def redo():
     except:
         pass
 
-# Ask to save file if user has file_save_on_exit as true, 
+# Ask to save file if user has file_save_on_exit as true
 def quit_app():
     text = text_widget.get('1.0', 'end').strip()
     if file_save_on_exit and (text != '' or file_name != '*'):
