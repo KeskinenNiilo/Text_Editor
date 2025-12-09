@@ -5,14 +5,14 @@
     },
     "file_settings" : {
     "file_save_on_exit" : true,
-    "file_auto_save" : true,
-    "file_auto_save_interval" : 60 // in seconds
+    "file_auto_save" : false,
+    "file_auto_save_interval" : 60
     },
     "ai_settings" : {
+        "ai_tools" : true,
         "spellcheck_model" : "gemma3:1b",
         "spellcheck_prompt" : "Spellcheck this, reply only the original text",
         "gen_model" : "gemma3:1b",
-        "gen_prompt" : "Generate a response without additional text:",
-        "ai_tools" : true
+        "gen_prompt" : "Generate a response without additional text:"
     }
 }

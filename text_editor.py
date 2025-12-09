@@ -11,13 +11,20 @@ import sys
 try:
     with open('settings.json', 'r') as file:
         settings = json.load(file)
-except:
+except FileNotFoundError:
+    print('No settings.json found in the current working directory.')
+    settings = {}
+except json.JSONDecodeError as e:
+    print(f'Error reading settings.json: Invalid JSON format. Error: {e}')
+    settings = {}
+except Exception as e:
+    print(f'An unexpected error occurred while loading settings: {e}')
     settings = {}
 
 text_font = settings.get('text_settings', {}).get('text_font', 'Arial')
 text_size = settings.get('text_settings', {}).get('text_size', '14')
-file_save_on_exit = settings.get('file_settings', {}).get('file_save_on_exit', True)
-file_auto_save = settings.get('file_settings', {}).get('file_auto_save', True)
+file_save_on_exit = settings.get('file_settings', {}).get('file_save_on_exit', False)
+file_auto_save = settings.get('file_settings', {}).get('file_auto_save', False)
 if file_auto_save:
     file_auto_save_interval = settings.get('file_settings', {}).get('file_auto_save_interval', 300)
 ai_tools = settings.get('ai_settings', {}).get('ai_tools', False)
