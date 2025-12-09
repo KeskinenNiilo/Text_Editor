@@ -4,7 +4,7 @@
         "text_size" : "14"
     },
     "file_settings" : {
-    "file_save_on_exit" : true,
+    "file_save_on_exit" : false,
     "file_auto_save" : false,
     "file_auto_save_interval" : 60
     },

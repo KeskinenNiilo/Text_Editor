@@ -7,7 +7,7 @@ import ollama
 import json
 import sys
 
-# Get settings.json, defaults last
+# Get settings.json, defaults
 try:
     with open('settings.json', 'r') as file:
         settings = json.load(file)
